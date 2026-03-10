@@ -25,3 +25,7 @@ class PublishedVideo(PublishedVideoBase, table = True):
 
     video_id: str = Field(foreign_key = "video.video_id")
     video: "Video" = Relationship(back_populates = "video_pub")
+
+class User(SQLModel, table = True):
+    username: str = Field(primary_key=True)
+    hashed_password: str
